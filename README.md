@@ -13,7 +13,7 @@ Source: [jsonlines.org/(https://jsonlines.org/)
 
 *Dropping errors to keep code example shorter. You should definitely check them!*
 
-### Write JSONL into buffer
+### Write JSONL (JSON Lines)
 
 The library automatically does the json marshaling for you on `Write(in interface{})`
 
@@ -39,7 +39,7 @@ func main(){
 }
 ```
 
-### Read JSONL from buffer
+### Read JSONL (JSON Lines)
 
 More interesting than writing into JSONL is reading it and working with it. This library provides you with two functions
 to do so.
