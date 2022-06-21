@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/VitalFrog/jsonl"
+	"github.com/vitalfrog/jsonl"
 	"strings"
 	"testing"
 )
