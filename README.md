@@ -7,7 +7,7 @@ No external dependencies are required for this to run.
 
 > JSON Lines is a convenient format for storing structured data that may be processed one record at a time. It works well with unix-style text processing tools and shell pipelines. It's a great format for log files. It's also a flexible format for passing messages between cooperating processes.
 
-Source: [jsonlines.org/(https://jsonlines.org/)
+Source: [jsonlines.org](https://jsonlines.org/)
 
 ## Examples
 
