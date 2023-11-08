@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/vitalfrog/jsonl"
 	"strings"
 	"testing"
+
+	"github.com/simonfrey/jsonl"
 )
 
 func TestReader_ReadSingleLine(t *testing.T) {
