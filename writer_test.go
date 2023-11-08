@@ -2,8 +2,9 @@ package jsonl_test
 
 import (
 	"bytes"
-	"github.com/vitalfrog/jsonl"
 	"testing"
+
+	"github.com/simonfrey/jsonl"
 )
 
 type T1 struct {
