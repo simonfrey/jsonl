@@ -49,7 +49,7 @@ func (w Writer) Write(data interface{}) error {
 
 func (w Writer) WriteMarshalled(data []byte) error {
 
-	_, err = w.w.Write(data)
+	_, err := w.w.Write(data)
 	if err != nil {
 		return fmt.Errorf("could not write json data to underlying io.Writer: %w", err)
 	}
