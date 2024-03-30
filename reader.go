@@ -47,3 +47,16 @@ func (r Reader) ReadLines(callback func(data []byte) error) error {
 	}
 	return nil
 }
+
+func (r Reader) ReadLinesUntil(callback func(data []byte) (bool, error)) error {
+	for r.scanner.Scan() {
+		continue_scan, err := callback(r.scanner.Bytes())
+		if err != nil {
+			return fmt.Errorf("error in callback: %w", err)
+		}
+		if !continue_scan {
+			return nil
+		}
+	}
+	return nil
+}

@@ -46,3 +46,22 @@ func (w Writer) Write(data interface{}) error {
 	}
 	return nil
 }
+
+func (w Writer) WriteMarshalled(data []byte) error {
+
+	_, err := w.w.Write(data)
+	if err != nil {
+		return fmt.Errorf("could not write json data to underlying io.Writer: %w", err)
+	}
+
+	_, err = w.w.Write([]byte("\n"))
+	if err != nil {
+		return fmt.Errorf("could not write newline to underlying io.Writer: %w", err)
+	}
+
+	if f, ok := w.w.(http.Flusher); ok {
+		// If http writer, flush as well
+		f.Flush()
+	}
+	return nil
+}
