@@ -43,6 +43,13 @@ func (w Writer) Write(data interface{}) error {
 		return fmt.Errorf("could not json marshal data: %w", err)
 	}
 
+	if w.prefix != "" {
+		_, err = w.w.Write([]byte(w.prefix))
+		if err != nil {
+			return fmt.Errorf("could not write prefix to underlying io.Writer: %w", err)
+		}
+	}
+
 	_, err = w.w.Write(j)
 	if err != nil {
 		return fmt.Errorf("could not write json data to underlying io.Writer: %w", err)
