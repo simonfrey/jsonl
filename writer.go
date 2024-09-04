@@ -8,13 +8,26 @@ import (
 )
 
 type Writer struct {
-	w io.Writer
+	w      io.Writer
+	prefix string
 }
 
-func NewWriter(w io.Writer) Writer {
-	return Writer{
+type WriterOption func(w *Writer)
+
+func WithPrefix(prefix string) WriterOption {
+	return func(w *Writer) {
+		w.prefix = prefix
+	}
+}
+
+func NewWriter(w io.Writer, opts ...WriterOption) Writer {
+	wr := Writer{
 		w: w,
 	}
+	for _, opt := range opts {
+		opt(&wr)
+	}
+	return wr
 }
 
 func (w Writer) Close() error {
